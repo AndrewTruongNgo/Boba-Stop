@@ -1,0 +1,32 @@
+.thumbnail {
+  width: 80%;
+  height: auto;
+}
+
+.store-list-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding-top: 30px;
+  padding-left: 60px;
+}
+.store-name-list {
+  align-self: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+
+}
+
+.store-location-list {
+  align-self: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+
+}
+
+.store-price-list {
+  align-self: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+
+
+}

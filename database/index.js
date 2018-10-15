@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-require('dotenv').config({path: __dirname + '/../.env'});
+// require('dotenv').config(path.join(__dirname, '/../.env'));
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -15,3 +15,26 @@ connection.connect((error) => {
     console.log('Database connection successful!')
   }
 });
+
+const findAllStores = (callback) => {
+  connection.query('SELECT * FROM stores', (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+const findStore = (storeID, callback) => {
+  connection.query(`SELECT * FROM stores WHERE store_ID = ${storeID}`, (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+module.exports.findAllStores = findAllStores;
+module.exports.findStore = findStore;
