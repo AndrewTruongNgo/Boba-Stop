@@ -12,20 +12,19 @@ class StorePage extends React.Component {
   render() {
     const { store } = this.props;
 
-    let makeStars = () => {
-      let rating = this.props.store.tea_quality;
-      let roundedRating = Math.floor(rating);
-      let stars = [];
+    let makeStars = (rating) => {
+      const roundedRating = Math.floor(rating);
+      const starsRating = [];
       for (let i = 0; i < roundedRating; i++) {
-        stars.push(<i class="fas fa-star"></i>);
+        starsRating.push(<i class="fas fa-star stars"></i>);
       }
 
-      const remainder = rating % 1;
-      if (remainder >= 0.5) {
-        stars.push(<i class="fas fa-star-half"></i>)
+      const remainderRating = rating % 1;
+      if (remainderRating >= 0.5) {
+        starsRating.push(<i class="fas fa-star-half stars"></i>)
       }
-      return <span>{stars}</span>;
-    }
+      return <span>{starsRating}</span>;
+    };
 
     return (
       <div>
@@ -38,7 +37,18 @@ class StorePage extends React.Component {
           <img src={store.image} className="store-page-image"></img>
         </div>
         <div className="store-details">
-          <span>Tea Quality</span><span>{makeStars()}</span>
+          <div className="tea-quality-row">
+            <div className="rate-description">Tea Quality</div><div className="stars-row">{makeStars(store.tea_quality)}</div>
+          </div>
+          <div className="boba-quality-row">
+            <div className="rate-description">Boba Quality</div><div className="stars-row">{makeStars(store.boba_quality)}</div>
+          </div>
+          <div className="sweetness-row">
+            <div className="rate-description">Sweetness</div><div className="rate-description">{store.sweetness}</div>
+          </div>
+          <div className="ice-row">
+            <div className="rate-description">Ice Level</div><div className="rate-description">{store.ice}</div>
+          </div>
         </div>
       </div>
     );

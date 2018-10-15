@@ -2,13 +2,13 @@
   align-self: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 70px;
-  padding-top: 10px;
-  padding-left: 20px;
+  padding-top: 13px;
+  padding-left: 30px;
 }
 
 .store-header {
   padding-top: 3px;
-  padding-left: 30px;
+  padding-left: 40px;
   padding-bottom: 20px;
 }
 
@@ -30,4 +30,47 @@
 .store-page-image {
   max-height:auto;
   width: 57%;
+}
+
+.store-details {
+  padding-top: 40px;
+  padding-left: 21%;
+}
+
+.tea-quality-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 20px;
+}
+
+.rate-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+}
+
+.stars-row {
+  padding-top: 4px;
+}
+
+.stars {
+  color: gold;
+  font-size: 32px;
+}
+
+.boba-quality-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 20px;
+}
+
+.sweetness-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 20px;
+}
+
+.ice-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 20px;
 }
