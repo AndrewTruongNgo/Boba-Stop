@@ -14,11 +14,9 @@ class App extends React.Component {
       list: false,
       storePage: false,
       store: null,
-
     };
     this.homeClick = this.homeClick.bind(this);
     this.listClick = this.listClick.bind(this);
-
   }
 
   componentDidMount() {
@@ -40,10 +38,18 @@ class App extends React.Component {
   listClick(store) {
     this.setState({
       list: false,
-      store: store,
+      store,
       storePage: true,
     });
   }
+
+  // likesClick() {
+  //   this.setState({
+  //     likes: this.props.likes + 1
+  //   });
+  //   make post request to DB
+  //   call get request again
+  // }
 
   render() {
     const { stores, home, list, storePage, store } = this.state;

@@ -2,4 +2,32 @@
   align-self: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 70px;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.store-header {
+  padding-top: 3px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+}
+
+.store-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+}
+
+.store-location {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  padding-left: 50px;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.store-page-image {
+  max-height:auto;
+  width: 57%;
 }
