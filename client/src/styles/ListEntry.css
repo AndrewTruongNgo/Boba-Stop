@@ -1,0 +1,55 @@
+.thumbnail {
+  width: 90%;
+  height: auto;
+}
+
+.store-list-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  padding-top: 30px;
+  padding-left: 60px;
+}
+.store-name-list {
+  align-self: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 25px;
+  padding-left: 90px;
+}
+
+.store-location-list {
+  align-self: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+
+}
+
+.store-price-list {
+  align-self: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  padding-left: 82px;
+
+}
+
+.heart-row {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 14% 100%;
+  padding-left: 40px;
+}
+
+.heart-list-icon-false {
+  font-size: 25px;
+}
+
+.heart-list-icon-true {
+  color: red;
+  font-size: 25px;
+}
+
+.like-count {
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 3px;
+  padding-right: 15px;
+}

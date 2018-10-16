@@ -36,5 +36,16 @@ const findStore = (storeID, callback) => {
   });
 };
 
+const updateLikes = (store, callback) => {
+  connection.query(`UPDATE stores SET likes = ${store.likes} WHERE store_id = ${store.storeID}`, (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports.findAllStores = findAllStores;
 module.exports.findStore = findStore;
+module.exports.updateLikes = updateLikes;

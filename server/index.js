@@ -32,4 +32,14 @@ app.get('/stores/:id', (req, res) => {
   });
 });
 
+app.post('/update-likes', (req, res) => {
+  controller.updateLikes(req.body, (error) => {
+    if (error) {
+      console.error('ERROR updateLikes query failed');
+    } else {
+      res.send('Post successful!');
+    }
+  })
+})
+
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));

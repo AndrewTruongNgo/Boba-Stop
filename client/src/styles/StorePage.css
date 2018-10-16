@@ -33,7 +33,7 @@
 }
 
 .store-details {
-  padding-top: 40px;
+  padding-top: 10px;
   padding-left: 21%;
 }
 
@@ -73,4 +73,29 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   padding-bottom: 20px;
+}
+
+
+.heart-row-main {
+  text-align: right;
+  display: grid;
+  grid-template-columns: 74% 4%;
+  padding-left: 40px;
+  padding-top: 7px;
+}
+
+.heart-list-icon-main-false {
+  font-size: 35px;
+}
+
+.heart-list-icon-main-true {
+  color: red;
+  font-size: 35px;
+}
+
+.like-count-main {
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 2px;
+  padding-right: 15px;
 }

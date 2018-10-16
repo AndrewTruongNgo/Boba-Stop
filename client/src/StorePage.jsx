@@ -1,27 +1,79 @@
 import React from 'react';
-import styles from './styles/StorePage.css'
+import styles from './styles/StorePage.css';
+import axios from 'axios';
+
 
 class StorePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      liked: false,
+      totalLikes: null,
     };
+    this.likedClick = this.likedClick.bind(this);
+  }
+
+  componentDidMount() {
+    const { store } = this.props;
+    axios.get(`/stores/${store.store_id}`)
+      .then((results) => {
+        this.setState({
+          totalLikes: results.data[0].likes,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  likedClick() {
+    const { liked, totalLikes } = this.state;
+    const { store } = this.props;
+    if (!liked) {
+      axios.post('/update-likes', {
+        storeID: store.store_id,
+        likes: totalLikes + 1,
+      })
+        .then(() => {
+          this.setState({
+            totalLikes: totalLikes + 1,
+            liked: !liked,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      axios.post('/update-likes', {
+        storeID: store.store_id,
+        likes: totalLikes - 1,
+      })
+        .then(() => {
+          this.setState({
+            totalLikes: totalLikes - 1,
+            liked: !liked,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }
 
 
   render() {
+    const { liked, totalLikes } = this.state;
     const { store } = this.props;
 
-    let makeStars = (rating) => {
+    const makeStars = (rating) => {
       const roundedRating = Math.floor(rating);
       const starsRating = [];
       for (let i = 0; i < roundedRating; i++) {
-        starsRating.push(<i class="fas fa-star stars"></i>);
+        starsRating.push(<i key={i} className="fas fa-star stars"></i>);
       }
-
       const remainderRating = rating % 1;
       if (remainderRating >= 0.5) {
-        starsRating.push(<i class="fas fa-star-half stars"></i>)
+        starsRating.push(<i className="fas fa-star-half stars"></i>)
       }
       return <span>{starsRating}</span>;
     };
@@ -36,6 +88,15 @@ class StorePage extends React.Component {
         <div className="image-container">
           <img src={store.image} className="store-page-image"></img>
         </div>
+        {!liked ? (
+            <div className="heart-row-main">
+              <div onClick={this.likedClick}><i className="far fa-heart heart-list-icon-main-false"></i></div><div className="like-count-main"> {totalLikes}</div>
+            </div>
+        ) : (
+          <div className="heart-row-main">
+            <div onClick={this.likedClick}><i className="fas fa-heart heart-list-icon-main-true"></i></div><div className="like-count-main"> {totalLikes}</div>
+          </div>
+        )}
         <div className="store-details">
           <div className="tea-quality-row">
             <div className="rate-description">Tea Quality</div><div className="stars-row">{makeStars(store.tea_quality)}</div>
