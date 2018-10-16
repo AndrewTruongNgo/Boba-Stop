@@ -7,8 +7,9 @@ class StorePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      liked: false,
+      liked: null,
       totalLikes: null,
+      comments: null,
     };
     this.likedClick = this.likedClick.bind(this);
   }
@@ -19,7 +20,18 @@ class StorePage extends React.Component {
       .then((results) => {
         this.setState({
           totalLikes: results.data[0].likes,
+          liked: results.data[0].liked,
         });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    axios.get(`/stores/comments/${store.store_id}`)
+      .then((results) => {
+        this.setState({
+          comments: results.data,
+        });
+        console.log(results.data);
       })
       .catch((error) => {
         console.log(error);
@@ -33,6 +45,7 @@ class StorePage extends React.Component {
       axios.post('/update-likes', {
         storeID: store.store_id,
         likes: totalLikes + 1,
+        liked: !liked,
       })
         .then(() => {
           this.setState({
@@ -47,6 +60,7 @@ class StorePage extends React.Component {
       axios.post('/update-likes', {
         storeID: store.store_id,
         likes: totalLikes - 1,
+        liked: !liked,
       })
         .then(() => {
           this.setState({
@@ -109,6 +123,9 @@ class StorePage extends React.Component {
           </div>
           <div className="ice-row">
             <div className="rate-description">Ice Level</div><div className="rate-description">{store.ice}</div>
+          </div>
+          <div className="top-seller-row">
+            <div className="rate-description">Top Seller</div><div className="rate-description">{store.top_seller}</div>
           </div>
         </div>
       </div>

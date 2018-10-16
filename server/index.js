@@ -32,6 +32,16 @@ app.get('/stores/:id', (req, res) => {
   });
 });
 
+app.get('/stores/comments/:id', (req, res) => {
+  controller.findComments(req.params.id, (error, results) => {
+    if (error) {
+      console.error('ERROR findComments query failed');
+    } else {
+      res.send(results);
+    }
+  });
+})
+
 app.post('/update-likes', (req, res) => {
   controller.updateLikes(req.body, (error) => {
     if (error) {

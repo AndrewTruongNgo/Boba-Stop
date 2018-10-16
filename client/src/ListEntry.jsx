@@ -25,6 +25,7 @@ class ListEntry extends React.Component {
       axios.post('/update-likes', {
         storeID: store.store_id,
         likes: totalLikes + 1,
+        liked: !liked,
       })
         .then(() => {
           this.setState({
@@ -39,6 +40,7 @@ class ListEntry extends React.Component {
       axios.post('/update-likes', {
         storeID: store.store_id,
         likes: totalLikes - 1,
+        liked: !liked,
       })
         .then(() => {
           this.setState({

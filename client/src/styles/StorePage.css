@@ -75,6 +75,12 @@
   padding-bottom: 20px;
 }
 
+.top-seller-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-bottom: 20px;
+}
+
 
 .heart-row-main {
   text-align: right;

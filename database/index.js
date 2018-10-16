@@ -37,7 +37,17 @@ const findStore = (storeID, callback) => {
 };
 
 const updateLikes = (store, callback) => {
-  connection.query(`UPDATE stores SET likes = ${store.likes} WHERE store_id = ${store.storeID}`, (error, results) => {
+  connection.query(`UPDATE stores SET likes = ${store.likes}, liked = ${store.liked} WHERE store_id = ${store.storeID}`, (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+const findComments = (storeID, callback) => {
+  connection.query(`SELECT comments.name, comments.comment FROM comments INNER JOIN stores ON stores.store_id = comments.store_id WHERE comments.store_id = ${storeID}`, (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -49,3 +59,4 @@ const updateLikes = (store, callback) => {
 module.exports.findAllStores = findAllStores;
 module.exports.findStore = findStore;
 module.exports.updateLikes = updateLikes;
+module.exports.findComments = findComments;
