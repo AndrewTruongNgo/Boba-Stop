@@ -3,6 +3,7 @@ import List from './List.jsx';
 import axios from 'axios';
 import Home from './Home.jsx';
 import StorePage from './StorePage.jsx';
+import ListEntry from './ListEntry.jsx';
 
 
 class App extends React.Component {
@@ -42,14 +43,6 @@ class App extends React.Component {
       storePage: true,
     });
   }
-
-  // likesClick() {
-  //   this.setState({
-  //     likes: this.props.likes + 1
-  //   });
-  //   make post request to DB
-  //   call get request again
-  // }
 
   render() {
     const { stores, home, list, storePage, store } = this.state;
