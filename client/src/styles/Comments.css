@@ -1,0 +1,85 @@
+.comments-container {
+  border: 2px solid #dedede;
+  /* background-color: #f1f1f1; */
+  border-radius: 5px;
+  padding: 34px;
+  margin: 10px 0;
+  margin-left: 21%;
+  margin-right: 22%;
+}
+
+.comment-row {
+
+}
+
+.comment-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 21px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.comment-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+
+.divide {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.line {
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.comment-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.comment-input {
+    width: 97%;
+    height: 34px;
+    padding: 6px 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.comment-input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.username-input {
+  width: 80%;
+  height: 34px;
+  padding: 6px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.comment-button-container {
+  margin-left: 62%;
+}
+
+.comment-button {
+  background: #2A5BFE;
+  border-radius: 3px;
+  border: 2px solid #2A5BFE;
+  color: white;
+  padding: 0.25em 1em;
+  font-size: 21px;
+  width: 167px;
+  height: 47px;
+  font-weight: 200;
+  font-family: 'Montserrat', sans-serif;
+}

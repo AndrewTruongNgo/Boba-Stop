@@ -13,9 +13,22 @@ class ListEntry extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      totalLikes: this.props.store.likes
-    });
+    const { liked, totalLikes } = this.state;
+    const { store, likes } = this.props;
+    axios.post('/update-likes', {
+      storeID: store.store_id,
+      likes: store.likes,
+      liked: false,
+    })
+      .then(() => {
+        this.setState({
+          totalLikes: store.likes,
+          liked: false,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   likedClick() {

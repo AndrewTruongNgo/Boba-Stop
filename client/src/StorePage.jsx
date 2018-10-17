@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/StorePage.css';
 import axios from 'axios';
-
+import Comments from './Comments.jsx';
 
 class StorePage extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class StorePage extends React.Component {
     this.state = {
       liked: null,
       totalLikes: null,
-      comments: null,
+      comments: [],
     };
     this.likedClick = this.likedClick.bind(this);
   }
@@ -31,7 +31,6 @@ class StorePage extends React.Component {
         this.setState({
           comments: results.data,
         });
-        console.log(results.data);
       })
       .catch((error) => {
         console.log(error);
@@ -76,7 +75,7 @@ class StorePage extends React.Component {
 
 
   render() {
-    const { liked, totalLikes } = this.state;
+    const { liked, totalLikes, comments } = this.state;
     const { store } = this.props;
 
     const makeStars = (rating) => {
@@ -128,6 +127,7 @@ class StorePage extends React.Component {
             <div className="rate-description">Top Seller</div><div className="rate-description">{store.top_seller}</div>
           </div>
         </div>
+        <Comments comments={comments} />
       </div>
     );
   }
