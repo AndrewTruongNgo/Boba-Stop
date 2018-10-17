@@ -36,7 +36,7 @@ CREATE TABLE comments (
   name VARCHAR(255),
   comment TEXT,
   -- created_at TIMESTAMP,
-  created_at DATE,
+  -- created_at DATE,
   store_id INT,
   FOREIGN KEY (store_id) REFERENCES stores (store_id)
 );
