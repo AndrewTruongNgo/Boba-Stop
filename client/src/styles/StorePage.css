@@ -35,6 +35,7 @@
 .store-details {
   padding-top: 10px;
   padding-left: 21%;
+  padding-bottom: 40px;
 }
 
 .tea-quality-row {
@@ -45,40 +46,40 @@
 
 .rate-description {
   font-family: 'Montserrat', sans-serif;
-  font-size: 35px;
+  font-size: 32px;
 }
 
 .stars-row {
-  padding-top: 4px;
+  padding-top: 1px;
 }
 
 .stars {
   color: gold;
-  font-size: 32px;
+  font-size: 35px;
 }
 
 .boba-quality-row {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-bottom: 20px;
+  padding-bottom: 28px;
 }
 
 .sweetness-row {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-bottom: 20px;
+  padding-bottom: 28px;
 }
 
 .ice-row {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-bottom: 20px;
+  padding-bottom: 28px;
 }
 
 .top-seller-row {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  padding-bottom: 20px;
+  padding-bottom: 28px;
 }
 
 
@@ -87,7 +88,7 @@
   display: grid;
   grid-template-columns: 74% 4%;
   padding-left: 40px;
-  padding-top: 7px;
+  padding-top: 15px;
 }
 
 .heart-list-icon-main-false {

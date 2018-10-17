@@ -40,7 +40,7 @@ app.get('/stores/comments/:id', (req, res) => {
       res.send(results);
     }
   });
-})
+});
 
 app.post('/update-likes', (req, res) => {
   controller.updateLikes(req.body, (error) => {
@@ -49,7 +49,17 @@ app.post('/update-likes', (req, res) => {
     } else {
       res.send('Post successful!');
     }
-  })
-})
+  });
+});
+
+app.post('/stores/comment', (req, res) => {
+  controller.insertComment(req.body, (error) => {
+    if (error) {
+      console.error('ERROR insertComment query failed', error);
+    } else {
+      res.send('Post successful!');
+    }
+  });
+});
 
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));

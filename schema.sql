@@ -36,17 +36,16 @@ CREATE TABLE comments (
   name VARCHAR(255),
   comment TEXT,
   -- created_at TIMESTAMP,
+  created_at DATE,
   store_id INT,
   FOREIGN KEY (store_id) REFERENCES stores (store_id)
 );
 
 INSERT INTO comments (name, comment, store_id) VALUES
-('PadawanAlan', 'Gotta love that bubble tea', 1);
+('PadawanAlan', 'Gotta drink that bubble tea', 1);
 
 INSERT INTO comments (name, comment, store_id) VALUES
-('SenpaiJun', 'This place is dope!', 1);
+('SenpaiJun', 'This place is awesome!', 1);
 
 INSERT INTO comments (name, comment, store_id) VALUES
 ('TeetoSpence', 'I can dig it', 1);
-
--- SELECT * FROM comments INNER JOIN stores ON stores.store_id = comments.store_id WHERE comments.store_id = 1;

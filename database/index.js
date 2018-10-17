@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-// require('dotenv').config(path.join(__dirname, '/../.env'));
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -47,7 +46,17 @@ const updateLikes = (store, callback) => {
 };
 
 const findComments = (storeID, callback) => {
-  connection.query(`SELECT comments.name, comments.comment FROM comments INNER JOIN stores ON stores.store_id = comments.store_id WHERE comments.store_id = ${storeID}`, (error, results) => {
+  connection.query(`SELECT comments.name, comments.comment, comments.store_id FROM comments INNER JOIN stores ON stores.store_id = comments.store_id WHERE comments.store_id = ${storeID} ORDER BY comments.comment_id DESC`, (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+const insertComment = (comment, callback) => {
+  connection.query(`INSERT INTO comments (name, comment, store_id) VALUES ('${comment.username}', '${comment.comment}', ${comment.storeID})`, (error, results) => {
     if (error) {
       callback(error, null);
     } else {
@@ -60,3 +69,4 @@ module.exports.findAllStores = findAllStores;
 module.exports.findStore = findStore;
 module.exports.updateLikes = updateLikes;
 module.exports.findComments = findComments;
+module.exports.insertComment = insertComment;
