@@ -127,7 +127,7 @@ class StorePage extends React.Component {
             <div className="rate-description">Top Seller</div><div className="rate-description">{store.top_seller}</div>
           </div>
         </div>
-        <Comments comments={comments} />
+        <Comments store={store}/>
       </div>
     );
   }

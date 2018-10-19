@@ -1,18 +1,18 @@
 const mysql = require('mysql');
 
-// const connection = mysql.createConnection({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASS,
-//   database: process.env.DB_DATABASE,
-// });
-
 const connection = mysql.createConnection({
-  host: 'us-cdbr-iron-east-01.cleardb.net',
-  user: 'b5ab251f893d61',
-  password: '7295f107',
-  database: 'heroku_f7bdee0d08ba178',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_DATABASE,
 });
+
+// const connection = mysql.createConnection({
+//   host: 'us-cdbr-iron-east-01.cleardb.net',
+//   user: 'b5ab251f893d61',
+//   password: '7295f107',
+//   database: 'heroku_f7bdee0d08ba178',
+// });
 
 connection.connect((error) => {
   if (error) {
@@ -53,7 +53,7 @@ const updateLikes = (store, callback) => {
 };
 
 const findComments = (storeID, callback) => {
-  connection.query(`SELECT comments.name, comments.comment, comments.store_id FROM comments INNER JOIN stores ON stores.store_id = comments.store_id WHERE comments.store_id = ${storeID} ORDER BY comments.comment_id DESC`, (error, results) => {
+  connection.query(`SELECT comments.name, comments.comment, comments.store_id FROM comments INNER JOIN stores ON stores.store_id = comments.store_id WHERE comments.store_id = ${storeID}`, (error, results) => {
     if (error) {
       callback(error, null);
     } else {

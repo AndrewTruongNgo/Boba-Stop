@@ -16,18 +16,18 @@ class Comments extends React.Component {
     this.commentClick = this.commentClick.bind(this);
   }
 
-  // componentDidMount() {
-  //   const { comments } = this.props;
-  //   axios.get(`/stores/comments/${comments.store_id}`)
-  //     .then((results) => {
-  //       this.setState({
-  //         comments: results.data,
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }
+  componentDidMount() {
+    const { store } = this.props;
+    axios.get(`/stores/comments/${store.store_id}`)
+      .then((results) => {
+        this.setState({
+          comments: results.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   usernameChange(event) {
     this.setState({
@@ -43,19 +43,25 @@ class Comments extends React.Component {
 
   commentClick() {
     const { username, comment } = this.state;
-    const { comments } = this.props;
+    const { store } = this.props;
     if (username && comment) {
       axios.post(`/stores/comment/`, {
         username,
         comment,
-        storeID: comments[0].store_id,
+        storeID: store.store_id,
       })
         .then(() => {
-          this.setState({
-            username: null,
-            comment: null,
-          });
-          alert('Comment posted!')
+          axios.get(`/stores/comments/${store.store_id}`)
+            .then((results) => {
+              this.setState({
+                username: null,
+                comment: null,
+                comments: results.data,
+              });
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         })
         .catch((error) => {
           console.log(error);
@@ -66,7 +72,7 @@ class Comments extends React.Component {
   }
 
   render() {
-    const { comments } = this.props;
+    const { comments } = this.state;
     return (
       <div className="comments-container">
         {comments.map((commentEntry) =>
