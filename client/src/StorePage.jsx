@@ -41,7 +41,7 @@ class StorePage extends React.Component {
     const { liked, totalLikes } = this.state;
     const { store } = this.props;
     if (!liked) {
-      axios.post('/update-likes', {
+      axios.put('/update-likes', {
         storeID: store.store_id,
         likes: totalLikes + 1,
         liked: !liked,
@@ -56,7 +56,7 @@ class StorePage extends React.Component {
           console.log(error);
         });
     } else {
-      axios.post('/update-likes', {
+      axios.put('/update-likes', {
         storeID: store.store_id,
         likes: totalLikes - 1,
         liked: !liked,

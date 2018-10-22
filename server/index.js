@@ -42,7 +42,7 @@ app.get('/stores/comments/:id', (req, res) => {
   });
 });
 
-app.post('/update-likes', (req, res) => {
+app.put('/update-likes', (req, res) => {
   controller.updateLikes(req.body, (error) => {
     if (error) {
       console.error('ERROR updateLikes query failed');
