@@ -5,6 +5,11 @@ const path = require('path');
 require('dotenv').config(path.join(__dirname, '/../.env'));
 const controller = require('../database');
 
+const accountSID = process.env.accountSID;
+const authToken = process.env.authToken;
+const twilioClient = require('twilio')(accountSID, authToken);
+
+
 const DIST_DIR = path.join(__dirname, '../client/dist/');
 
 const app = express();
@@ -61,5 +66,23 @@ app.post('/stores/comment', (req, res) => {
     }
   });
 });
+
+// app.post('/new-subscriber', (req, res) => {
+//
+//   twilioClient.messages.create({
+//     to: req.body.phoneNumber,
+//     from: '+16263178466',
+//     body: `Welcome to Boba Stop! You're on the list!`,
+//   })
+//   .then((message) => console.log(message.sid));
+//
+//   // controller.insertComment(req.body, (error) => {
+//   //   if (error) {
+//   //     console.error('ERROR insertComment query failed', error);
+//   //   } else {
+//   //     res.send('Post successful!');
+//   //   }
+//   // });
+// });
 
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));
