@@ -75,14 +75,8 @@ app.post('/new-subscriber', (req, res) => {
     body: `Welcome to Boba Stop! You're on the list!`,
   })
   .then((message) => console.log(message.sid));
+  res.send('Post successful!');
 
-  // controller.insertComment(req.body, (error) => {
-  //   if (error) {
-  //     console.error('ERROR insertComment query failed', error);
-  //   } else {
-  //     res.send('Post successful!');
-  //   }
-  // });
 });
 
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));

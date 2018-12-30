@@ -1,0 +1,36 @@
+.mobile-container {
+  margin-top: 2%;
+}
+
+.mobile-content-container {
+  margin-left: 79%;
+}
+
+.number-input {
+  width: 10%;
+  height: 28px;
+  padding: 6px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.submit-button {
+  background: #F79494;
+  border-radius: 3px;
+  border: 2px solid #F79494;
+  color: white;
+  padding: 0.25em 1em;
+  font-size: 15px;
+  width: 6%;
+  height: 40px;
+  font-weight: 200;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.submit-button-container {
+  padding-left: 1%;
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './styles/StorePage.css';
 import axios from 'axios';
 import Comments from './Comments.jsx';
+import MobileSubscribe from './MobileSubscribe.jsx';
+
 
 class StorePage extends React.Component {
   constructor(props) {
@@ -93,6 +95,7 @@ class StorePage extends React.Component {
 
     return (
       <div>
+        <MobileSubscribe />
         <div className="store-name">{store.name}</div>
         <div className="store-header">
           <span className="store-price">{store.price}</span>

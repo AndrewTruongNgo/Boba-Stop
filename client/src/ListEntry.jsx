@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './styles/ListEntry.css';
 import axios from 'axios';
 
+
 class ListEntry extends React.Component {
   constructor(props) {
     super(props);

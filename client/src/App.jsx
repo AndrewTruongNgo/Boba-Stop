@@ -5,7 +5,6 @@ import Home from './Home.jsx';
 import StorePage from './StorePage.jsx';
 import ListEntry from './ListEntry.jsx';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
