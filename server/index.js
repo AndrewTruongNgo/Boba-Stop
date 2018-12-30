@@ -67,6 +67,7 @@ app.post('/stores/comment', (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 // app.post('/new-subscriber', (req, res) => {
 //
 //   twilioClient.messages.create({
@@ -84,5 +85,24 @@ app.post('/stores/comment', (req, res) => {
 //   //   }
 //   // });
 // });
+=======
+app.post('/new-subscriber', (req, res) => {
+
+  twilioClient.messages.create({
+    to: req.body.phoneNumber,
+    from: '+16263178466',
+    body: `Welcome to Boba Stop! You're on the list!`,
+  })
+  .then((message) => console.log(message.sid));
+
+  // controller.insertComment(req.body, (error) => {
+  //   if (error) {
+  //     console.error('ERROR insertComment query failed', error);
+  //   } else {
+  //     res.send('Post successful!');
+  //   }
+  // });
+});
+>>>>>>> 383e095e1ce8d3c7feda23a19c4b5878dab8da0a
 
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));
