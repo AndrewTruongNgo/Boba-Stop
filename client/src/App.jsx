@@ -1,6 +1,5 @@
 import React from 'react';
 import List from './List.jsx';
-import axios from 'axios';
 import Home from './Home.jsx';
 import StorePage from './StorePage.jsx';
 import ListEntry from './ListEntry.jsx';
