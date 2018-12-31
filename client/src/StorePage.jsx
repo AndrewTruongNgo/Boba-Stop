@@ -11,7 +11,6 @@ class StorePage extends React.Component {
     this.state = {
       liked: null,
       totalLikes: null,
-      comments: [],
     };
     this.likedClick = this.likedClick.bind(this);
   }
@@ -23,15 +22,6 @@ class StorePage extends React.Component {
         this.setState({
           totalLikes: results.data[0].likes,
           liked: results.data[0].liked,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    axios.get(`/stores/comments/${store.store_id}`)
-      .then((results) => {
-        this.setState({
-          comments: results.data,
         });
       })
       .catch((error) => {
@@ -77,7 +67,7 @@ class StorePage extends React.Component {
 
 
   render() {
-    const { liked, totalLikes, comments } = this.state;
+    const { liked, totalLikes } = this.state;
     const { store } = this.props;
 
     const makeStars = (rating) => {

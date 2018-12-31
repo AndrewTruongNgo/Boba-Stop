@@ -99,4 +99,3 @@ class Comments extends React.Component {
 }
 
 export default Comments;
-// {console.log(moment([2018, 9, 16 11:21:27]).fromNow())}
