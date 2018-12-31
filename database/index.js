@@ -7,13 +7,6 @@ const connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
-// const connection = mysql.createConnection({
-//   host: 'us-cdbr-iron-east-01.cleardb.net',
-//   user: 'b5ab251f893d61',
-//   password: '7295f107',
-//   database: 'heroku_f7bdee0d08ba178',
-// });
-
 connection.connect((error) => {
   if (error) {
     console.log('ERROR database connection failed', error)
@@ -72,8 +65,19 @@ const insertComment = (comment, callback) => {
   });
 };
 
+const insertSubscriber = (phoneNumber, callback) => {
+  connection.query(`INSERT INTO subscribers (phone_number) VALUES ('${phoneNumber.phoneNumber}')`, (error, results) => {
+    if (error) {
+      callback(error, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports.findAllStores = findAllStores;
 module.exports.findStore = findStore;
 module.exports.updateLikes = updateLikes;
 module.exports.findComments = findComments;
 module.exports.insertComment = insertComment;
+module.exports.insertSubscriber = insertSubscriber;

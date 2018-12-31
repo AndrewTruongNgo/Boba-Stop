@@ -9,13 +9,11 @@ const accountSID = process.env.accountSID;
 const authToken = process.env.authToken;
 const twilioClient = require('twilio')(accountSID, authToken);
 
-
 const DIST_DIR = path.join(__dirname, '../client/dist/');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(express.static(DIST_DIR));
-
 
 app.get('/store-list', (req, res) => {
   controller.findAllStores((error, results) => {
@@ -68,15 +66,19 @@ app.post('/stores/comment', (req, res) => {
 });
 
 app.post('/new-subscriber', (req, res) => {
-
-  twilioClient.messages.create({
-    to: req.body.phoneNumber,
-    from: '+16263178466',
-    body: `Welcome to Boba Stop! You're on the list!`,
+  controller.insertSubscriber(req.body, (error) => {
+    if (error) {
+      console.error('ERROR insertSubscriber query failed', error)
+    } else {
+      twilioClient.messages.create({
+        to: req.body.phoneNumber,
+        from: '+16263178466',
+        body: `Welcome to Boba Stop! You're on the list!`,
+      })
+      .then((message) => console.log(message.sid));
+      res.send('Post successful!');
+    }
   })
-  .then((message) => console.log(message.sid));
-  res.send('Post successful!');
-
 });
 
 app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}...`));

@@ -47,3 +47,8 @@ INSERT INTO comments (name, comment, store_id) VALUES
 
 INSERT INTO comments (name, comment, store_id) VALUES
 ('TeetoSpence', 'I can dig it', 1);
+
+CREATE TABLE subscribers (
+  mobile_id INT AUTO_INCREMENT PRIMARY KEY,
+  phone_number VARCHAR(12)
+);
