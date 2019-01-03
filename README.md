@@ -2,12 +2,18 @@
 Welcome to Boba Stop!
 
 ## Install node packages
-Npm install
+```
+npm install
+```
 
 ## Start webpack and compile bundle file
-Npm run react-dev
+```
+npm run react-dev
+```
 
 ## Start server
-Npm start
+```
+npm start
+```
 
 View web application on http://localhost:4000
