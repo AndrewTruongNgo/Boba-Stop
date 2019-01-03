@@ -1,17 +1,17 @@
 # Boba-Stop
 Welcome to Boba Stop!
 
-##Build Files
+## Build Files
 ```
 npm install
 ```
 
-##Start Sever
+## Start Sever
 ```
 npm start
 ```
 
-##Compile bundle
+## Compile bundle
 ```
 npm run react-dev
 ```
