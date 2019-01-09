@@ -36,7 +36,7 @@ class MobileSubscribe extends React.Component {
         isValid = false;
         alert('Invalid number');
       }
-    })
+    });
 
     //Post request made to server
     if (isValid) {
