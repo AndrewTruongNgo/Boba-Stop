@@ -95,4 +95,4 @@ module.exports.updateLikes = updateLikes;
 module.exports.findComments = findComments;
 module.exports.insertComment = insertComment;
 module.exports.insertSubscriber = insertSubscriber;
-module.exports.reconnect = reconnect;
+// module.exports.reconnect = reconnect;
