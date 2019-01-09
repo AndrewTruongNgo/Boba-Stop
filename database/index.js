@@ -10,24 +10,24 @@ const db_config = {
 
 let connection = mysql.createPool(db_config);
 
-connection.connect((error) => {
-  if (error) {
-    console.log('ERROR database connection failed', error)
-  } else {
-    console.log('Database connection successful!')
-  }
-});
+// connection.connect((error) => {
+//   if (error) {
+//     console.log('ERROR database connection failed', error)
+//   } else {
+//     console.log('Database connection successful!')
+//   }
+// });
 
-const reconnect = () => {
-  connection = mysql.createConnection(db_config);
-  connection.connect((error) => {
-    if (error) {
-      console.log('ERROR database connection failed', error)
-    } else {
-      console.log('Database connection successful!')
-    }
-  });
-}
+// const reconnect = () => {
+//   connection = mysql.createConnection(db_config);
+//   connection.connect((error) => {
+//     if (error) {
+//       console.log('ERROR database connection failed', error)
+//     } else {
+//       console.log('Database connection successful!')
+//     }
+//   });
+// }
 
 const findAllStores = (callback) => {
   connection.query('SELECT * FROM stores', (error, results) => {
