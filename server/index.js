@@ -10,7 +10,7 @@ const authToken = process.env.authToken;
 const twilioClient = require('twilio')(accountSID, authToken);
 
 const DIST_DIR = path.join(__dirname, '../client/dist/');
-const port = '8080' || process.env.PORT;
+const port = process.env.PORT || 8080;
 
 const app = express();
 app.use(bodyParser.json());
