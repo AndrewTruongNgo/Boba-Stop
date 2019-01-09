@@ -10,6 +10,7 @@ const authToken = process.env.authToken;
 const twilioClient = require('twilio')(accountSID, authToken);
 
 const DIST_DIR = path.join(__dirname, '../client/dist/');
+const port = '8080' || process.env.PORT;
 
 const app = express();
 app.use(bodyParser.json());
@@ -85,4 +86,4 @@ app.post('/new-subscriber', (req, res) => {
   })
 });
 
-app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}...`));
+app.listen(port, () => console.log(`Listening on port ${port}...`));
