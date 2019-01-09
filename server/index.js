@@ -15,6 +15,10 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static(DIST_DIR));
 
+app.get('/', (req, res) => {
+  res.sendFile(DIST_DIR);
+});
+
 app.get('/store-list', (req, res) => {
   controller.findAllStores((error, results) => {
     if (error) {
