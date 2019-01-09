@@ -7,7 +7,7 @@ const db_config = {
   database: process.env.DB_DATABASE,
 }
 
-let connection = mysql.createConnection(db_config);
+let connection = mysql.createPool(db_config);
 
 connection.connect((error) => {
   if (error) {
