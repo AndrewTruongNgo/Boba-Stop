@@ -1,11 +1,13 @@
 const mysql = require('mysql');
 
-const connection = mysql.createConnection({
+const db_config = {
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_DATABASE,
-});
+}
+
+let connection = mysql.createConnection(db_config);
 
 connection.connect((error) => {
   if (error) {
@@ -16,6 +18,7 @@ connection.connect((error) => {
 });
 
 const reconnect = () => {
+  connection = mysql.createConnection(db_config);
   connection.connect((error) => {
     if (error) {
       console.log('ERROR database connection failed', error)
