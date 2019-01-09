@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 app.get('/store-list', (req, res) => {
   controller.findAllStores((error, results) => {
     if (error) {
+      controller.reconnect();
       console.error('ERROR findAllStores query failed', error);
     } else {
       res.send(results);
@@ -33,6 +34,7 @@ app.get('/store-list', (req, res) => {
 app.get('/stores/:id', (req, res) => {
   controller.findStore(req.params.id, (error, results) => {
     if (error) {
+      controller.reconnect();
       console.error('ERROR findStore query failed');
     } else {
       res.send(results);
@@ -43,6 +45,7 @@ app.get('/stores/:id', (req, res) => {
 app.get('/stores/comments/:id', (req, res) => {
   controller.findComments(req.params.id, (error, results) => {
     if (error) {
+      controller.reconnect();
       console.error('ERROR findComments query failed');
     } else {
       res.send(results);
@@ -53,6 +56,7 @@ app.get('/stores/comments/:id', (req, res) => {
 app.put('/update-likes', (req, res) => {
   controller.updateLikes(req.body, (error) => {
     if (error) {
+      controller.reconnect();
       console.error('ERROR updateLikes query failed');
     } else {
       res.send('Post successful!');
@@ -63,6 +67,7 @@ app.put('/update-likes', (req, res) => {
 app.post('/stores/comment', (req, res) => {
   controller.insertComment(req.body, (error) => {
     if (error) {
+      controller.reconnect();
       console.error('ERROR insertComment query failed', error);
     } else {
       res.send('Post successful!');
@@ -73,6 +78,7 @@ app.post('/stores/comment', (req, res) => {
 app.post('/new-subscriber', (req, res) => {
   controller.insertSubscriber(req.body, (error) => {
     if (error) {
+      controller.reconnect();
       console.error('ERROR insertSubscriber query failed', error)
     } else {
       twilioClient.messages.create({

@@ -15,6 +15,16 @@ connection.connect((error) => {
   }
 });
 
+const reconnect = () => {
+  connection.connect((error) => {
+    if (error) {
+      console.log('ERROR database connection failed', error)
+    } else {
+      console.log('Database connection successful!')
+    }
+  });
+}
+
 const findAllStores = (callback) => {
   connection.query('SELECT * FROM stores', (error, results) => {
     if (error) {
@@ -81,3 +91,4 @@ module.exports.updateLikes = updateLikes;
 module.exports.findComments = findComments;
 module.exports.insertComment = insertComment;
 module.exports.insertSubscriber = insertSubscriber;
+module.exports.reconnect = reconnect;
