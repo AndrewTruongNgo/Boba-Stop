@@ -6,28 +6,9 @@ const db_config = {
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_DATABASE,
-}
+};
 
-let connection = mysql.createPool(db_config);
-
-// connection.connect((error) => {
-//   if (error) {
-//     console.log('ERROR database connection failed', error)
-//   } else {
-//     console.log('Database connection successful!')
-//   }
-// });
-
-// const reconnect = () => {
-//   connection = mysql.createConnection(db_config);
-//   connection.connect((error) => {
-//     if (error) {
-//       console.log('ERROR database connection failed', error)
-//     } else {
-//       console.log('Database connection successful!')
-//     }
-//   });
-// }
+const connection = mysql.createPool(db_config);
 
 const findAllStores = (callback) => {
   connection.query('SELECT * FROM stores', (error, results) => {
@@ -95,4 +76,3 @@ module.exports.updateLikes = updateLikes;
 module.exports.findComments = findComments;
 module.exports.insertComment = insertComment;
 module.exports.insertSubscriber = insertSubscriber;
-// module.exports.reconnect = reconnect;
