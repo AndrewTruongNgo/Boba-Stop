@@ -1,6 +1,8 @@
 # Boba-Stop
 Welcome to Boba Stop!
 
+https://boba-stop.herokuapp.com/
+
 ## Install node packages
 ```
 npm install
